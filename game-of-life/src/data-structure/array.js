@@ -48,14 +48,14 @@ function getNeighbors(currentCell){
     return neighbors
 }
 
-/* function willLive(currentCell){
+function willLive(currentCell){
     const neighbors = getNeighbors(currentCell)
     neighbors.forEach(cell => {
-        if (cell.value === 'dead'){
-
+        if (!cell.value){
+            
         }
     })
-} */
+}
 
 let testCell = array.filter(cell => (cell.x === 1) && (cell.y === 1))
 
