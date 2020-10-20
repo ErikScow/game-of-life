@@ -1,13 +1,13 @@
 
 html{
+  width: 100%;
   box-sizing: border-box;
 }
 
 .grid{
-  width: 40%;
-  height: 0;
+  width: 784px;
+  height: 784px;
   padding: 0px;
-  padding-bottom: 40%;
   border: 1px solid black;
   margin: 0px;
 
@@ -17,10 +17,9 @@ html{
 
 .cell{
   position: relative;
-  height: 0;
-  width: 3.1%;
+  height: 26px;
+  width: 26px;
   padding: 0px;
-  padding-bottom: 3.1%;
   border: 1px solid black;
   margin: 0px;
 }

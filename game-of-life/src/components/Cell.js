@@ -10,7 +10,7 @@ const Cell = (props) => {
             ...props.cell,
             value: !props.cell.value
         }
-        let newGrid = {...props.grid}
+        let newGrid = [...props.grid]
 
         newGrid[index] = newCell
 
