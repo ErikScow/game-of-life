@@ -4,6 +4,13 @@ html{
   box-sizing: border-box;
 }
 
+.app{
+  padding: 30px;
+  display:flex;
+  flex-flow: row-nowrap;
+  justify-content: space-around;
+}
+
 .grid{
   width: 784px;
   height: 784px;
@@ -34,4 +41,10 @@ html{
 
 .alive{
   background-color: green;
+}
+
+.speed-buttons{
+  width:120px;
+  display:flex;
+  flex-flow: column;
 }

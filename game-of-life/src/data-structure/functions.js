@@ -34,14 +34,16 @@ function createGrid(){
 }
 
 function iterateGen(grid){
-    for (x = 1; x < 27; x++){
-        for (y = 1; y < 27; y++){
-            grid.forEach(cell => {
-                const nextValue = cellNextValue(cell)
-                cell.value = nextValue
-            })
-        }
-    }
+    const next = []
+    grid.forEach(cell => {
+        const nextValue = cellNextValue(grid, cell)
+        next.push({
+            x: cell.x,
+            y: cell.y,
+            value: nextValue
+        })
+    })
+    return next
 }
 
 function getNeighbors(grid, currentCell){
@@ -67,11 +69,21 @@ function cellNextValue(grid, currentCell){
             livingNeighbors ++
         }
     })
-    if (currentCell.value != null){
-        if (livingNeighbors < 2 || livingNeighbors > 3){
+    if (currentCell.value === null){
+        return null
+    }
+    if (currentCell.value === true){
+        if (livingNeighbors > 1 && livingNeighbors < 4){
+            return true
+        } else {
             return false
         }
-        return true
     }
-    return null
+    if (currentCell.value === false){
+        if (livingNeighbors === 3){
+            return true
+        } else {
+            return false
+        }
+    }
 }

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 
 import Cell from './Cell'
+import Controls from './Controls'
 
 import {
     createGrid, 
@@ -12,13 +13,22 @@ import {
 const Grid = () => {
     const originalGrid = createGrid()
     const [grid, setGrid] = useState(originalGrid)
+    const [generation, setGeneration] = useState(0)
+    const [running, setRunning] = useState(false)
 
     return(
-        <div className='grid'>
-            {grid.map(cell => {
-                return <Cell cell={cell} grid={grid} setGrid={setGrid}/>
-            })}
+        <div>
+            <div className='grid'>
+            
+                {grid.map(cell => {
+                    return <Cell cell={cell} grid={grid} setGrid={setGrid} running={running}/>
+                })}
+                
+            </div>
+            <h3>Current Generation: {generation}</h3>
+            <Controls grid={grid} setGrid={setGrid} generation={generation} setGeneration={setGeneration} running={running} setRunning={setRunning}/>
         </div>
+        
     )
 }
 

@@ -6,8 +6,9 @@ import Info from './components/Info'
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Grid/>
+      <Info/>
     </div>
   );
 }

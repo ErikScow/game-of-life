@@ -3,18 +3,27 @@ import React from 'react'
 const Cell = (props) => {
 
     const toggle = () => {
+        if (!props.running){
+            let index = props.grid.findIndex(cell => ((cell.x === props.cell.x) && (cell.y === props.cell.y)))
+            let newCell
 
-        let index = props.grid.findIndex(cell => ((cell.x === props.cell.x) && (cell.y === props.cell.y)))
+            if (props.cell.value != null){
+                newCell = {
+                    ...props.cell,
+                    value: !props.cell.value
+                }
+            } else {
+                newCell = {
+                    ...props.cell
+                }
+            }
+            
+            let newGrid = [...props.grid]
 
-        let newCell = {
-            ...props.cell,
-            value: !props.cell.value
+            newGrid[index] = newCell
+
+            props.setGrid(newGrid)
         }
-        let newGrid = [...props.grid]
-
-        newGrid[index] = newCell
-
-        props.setGrid(newGrid)
     }
 
     let cellType = 'cell dead'

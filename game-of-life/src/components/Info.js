@@ -2,7 +2,9 @@ import React from 'react'
 
 const Info = () => {
     return(
-        <div></div>
+        <div>
+            <h1>Conway's Game of Life</h1>
+        </div>
     )
 }
 
